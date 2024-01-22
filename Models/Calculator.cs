@@ -4,28 +4,28 @@
     {
         public double Add(double a, double b) 
         {
-            Validate(a, b);
+            IsDoubles(a, b);
             return a + b; 
         }
         public double Subtract(double a, double b)
         {
-            Validate(a, b);
+            IsDoubles(a, b);
             return a - b;
         }
         public double Multiply(double a, double b)
         {
-            Validate(a, b);
+            IsDoubles(a, b);
             return a * b;
         }
         public double Divide(double a, double b)
         {
-            Validate(a, b);
+            IsDoubles(a, b);
             if (b == 0)
                 throw new ArgumentException("Divide by 0 error.");
             return a / b;
         }
 
-        public void Validate(params double[] nums)
+        public void IsDoubles(params double[] nums)
         {
            foreach (double num in nums)
            {
