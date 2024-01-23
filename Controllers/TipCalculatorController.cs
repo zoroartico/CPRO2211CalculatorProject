@@ -10,6 +10,7 @@ namespace CPRO2211CalculatorProject.Controllers
         {
             return View();
         }
+        /*
         [HttpPost]
         public IActionResult TipCalculatorView(TipCalculator tc)
         {
@@ -28,5 +29,6 @@ namespace CPRO2211CalculatorProject.Controllers
             }
             return View(tc);
         }
+        */
     }
 }

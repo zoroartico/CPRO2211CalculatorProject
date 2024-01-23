@@ -8,6 +8,7 @@ namespace CPRO2211CalculatorProject.Models
         //performing mathmatical operations on them.
         public double Add(params double[] numbers)
         {
+            //checking if the inputed variables are null or empty, then throwing an error.
             if (numbers == null || numbers.Length == 0)
                 throw new ArgumentException(ErrorMsg.EMPTY);
 
