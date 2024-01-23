@@ -9,6 +9,5 @@ namespace CPRO2211CalculatorProject.Controllers
         public IActionResult TipCalculatorView()
         {
             return View();
-        }
-    }
+        }    }
 }
