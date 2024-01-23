@@ -8,42 +8,51 @@ namespace CPRO2211CalculatorProject.Models
         //performing mathmatical operations on them.
         public double Add(params double[] numbers)
         {
-            double result = 0;
-            foreach (double number in numbers)
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException(ErrorMsg.EMPTY);
+
+            double result = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
             {
-                result += number;
+                result += numbers[i];
             }
             return result;
         }
         public double Subtract(params double[] numbers)
         {
-            double result = 0;
-            foreach (double number in numbers)
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException(ErrorMsg.EMPTY);
+
+            double result = numbers[0];
+            for(int i = 1; i < numbers.Length; i++)
             {
-                result -= number;
+                result -= numbers[i];
             }
             return result;
         }
         public double Multiply(params double[] numbers)
         {
-            double result = 1;
-            foreach (double number in numbers)
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException(ErrorMsg.EMPTY);
+
+            double result = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
             {
-                result *= number;
+                result *= numbers[i];
             }
             return result;
         }
         public double Divide(params double[] numbers)
         {
-            double result = 0;
-            foreach (double number in numbers)
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException(ErrorMsg.EMPTY);
+
+            double result = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
             {
-                if (number == 0)
-                    throw new ArgumentException("Divide by 0 error.");
-                else if (result == 0)
-                    result = number;
-                else
-                    result /= number;
+                if (numbers[i] == 0)
+                    throw new ArgumentException(ErrorMsg.DIV_0);
+                result /= numbers[i];
             }        
             return result;
         }
