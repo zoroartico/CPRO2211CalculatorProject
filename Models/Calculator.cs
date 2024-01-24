@@ -4,14 +4,18 @@ namespace CPRO2211CalculatorProject.Models
 {
     public class Calculator
     {
+        //checking if the inputed variables are null or empty, then throwing an error.
+        public void Validate(params double[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                throw new ArgumentException(ErrorMsg.EMPTY);
+        }
+
         //creating a variety of methods that return the result of a varying qty of numbers after
         //performing mathmatical operations on them.
         public double Add(params double[] numbers)
         {
-            //checking if the inputed variables are null or empty, then throwing an error.
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException(ErrorMsg.EMPTY);
-
+            Validate(numbers);
             double result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
@@ -21,9 +25,7 @@ namespace CPRO2211CalculatorProject.Models
         }
         public double Subtract(params double[] numbers)
         {
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException(ErrorMsg.EMPTY);
-
+            Validate(numbers);
             double result = numbers[0];
             for(int i = 1; i < numbers.Length; i++)
             {
@@ -33,9 +35,7 @@ namespace CPRO2211CalculatorProject.Models
         }
         public double Multiply(params double[] numbers)
         {
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException(ErrorMsg.EMPTY);
-
+            Validate(numbers);
             double result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
@@ -45,9 +45,7 @@ namespace CPRO2211CalculatorProject.Models
         }
         public double Divide(params double[] numbers)
         {
-            if (numbers == null || numbers.Length == 0)
-                throw new ArgumentException(ErrorMsg.EMPTY);
-
+            Validate(numbers);
             double result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
@@ -57,5 +55,6 @@ namespace CPRO2211CalculatorProject.Models
             }        
             return result;
         }
+        
     }
 }

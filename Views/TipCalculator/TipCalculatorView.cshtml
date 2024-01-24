@@ -1,19 +1,20 @@
-﻿
-<div class="row">
-    <label>Total: </label>
-    <input type="number" id="inputTotal" text="0.00" />
-</div>
-<div class="row">
-    <label value ="15">Tip 15%: </label>
-    <output id="tip15" type="number"></output>
-</div>
-<div class="row">
-    <label value="20">Tip 20%: </label>
-    <output id="tip20" type="number"></output>
-</div>
-<div class="row">
-    <label value="25">Tip 25%: </label>
-    <output id="tip25" type="number"></output>
-</div>
-<button onclick="()">Calculate</button>
-
+﻿@model TipCalculator
+<form method="post">
+    <div class="row">
+        <label>Total: </label>
+        <input asp-for="Total" type="number"/>
+    </div>
+    <div class="row">
+        <label>Tip 15%: </label>
+        <output asp-for="Tip15" type="number">@ViewBag.Tip15</output>
+    </div>
+    <div class="row">
+        <label>Tip 20%: </label>
+        <output asp-for="Tip20" type="number">@ViewBag.Tip20</output>
+    </div>
+    <div class="row">
+        <label>Tip 25%: </label>
+        <output asp-for="Tip25" type="number">@ViewBag.Tip25</output>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
