@@ -5,7 +5,7 @@ namespace CPRO2211CalculatorProject.Models
     public class Calculator
     {
         //checking if the inputed variables are null or empty, then throwing an error.
-        public void Validate(params double[] numbers)
+        public void Validate(params decimal[] numbers)
         {
             if (numbers == null || numbers.Length == 0)
                 throw new ArgumentException(ErrorMsg.EMPTY);
@@ -13,40 +13,40 @@ namespace CPRO2211CalculatorProject.Models
 
         //creating a variety of methods that return the result of a varying qty of numbers after
         //performing mathmatical operations on them.
-        public double Add(params double[] numbers)
+        public decimal Add(params decimal[] numbers)
         {
             Validate(numbers);
-            double result = numbers[0];
+            decimal result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
                 result += numbers[i];
             }
             return result;
         }
-        public double Subtract(params double[] numbers)
+        public decimal Subtract(params decimal[] numbers)
         {
             Validate(numbers);
-            double result = numbers[0];
+            decimal result = numbers[0];
             for(int i = 1; i < numbers.Length; i++)
             {
                 result -= numbers[i];
             }
             return result;
         }
-        public double Multiply(params double[] numbers)
+        public decimal Multiply(params decimal[] numbers)
         {
             Validate(numbers);
-            double result = numbers[0];
+            decimal result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
                 result *= numbers[i];
             }
             return result;
         }
-        public double Divide(params double[] numbers)
+        public decimal Divide(params decimal[] numbers)
         {
             Validate(numbers);
-            double result = numbers[0];
+            decimal result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
                 if (numbers[i] == 0)

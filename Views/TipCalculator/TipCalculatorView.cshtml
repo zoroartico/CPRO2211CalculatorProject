@@ -1,5 +1,6 @@
 ﻿@model TipCalculator
-<form method="post">
+<form asp-action="TipCalculatorView" method="post">
+    
     <div class="card">
         <div class="item">
             <label>Total: </label>
@@ -8,22 +9,22 @@
 
         <div class="item">
             <label>Tip 15%: </label>
-            <output asp-for="Tip15" type="number">@ViewBag.Tip15</output>
+            <output type="number">@ViewBag.Tip15.ToString("C2")</output>
         </div>
 
         <div class="item">
             <label>Tip 20%: </label>
-            <output asp-for="Tip20" type="number">@ViewBag.Tip20</output>
+            <output type="number">@ViewBag.Tip20.ToString("C2")</output>
         </div>
 
         <div class="item">
             <label>Tip 25%: </label>
-            <output asp-for="Tip25" type="number">@ViewBag.Tip25</output>
+            <output type="number">@ViewBag.Tip25.ToString("C2")</output>
         </div>
+        
+        <button type="submit">Calculate</button>
 
-        <div class="item">
-            <button type="submit">Calculate</button>
-        </div>
+        <a asp-action="TipCalculatorView">Clear</a>
 
     </div>
     
