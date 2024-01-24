@@ -16,14 +16,13 @@ namespace CPRO2211CalculatorProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult TipCalculatorView(TipCalculator tc)
+        public IActionResult TipCalculatorView(TipCalculatorModel tc)
         {
             if (ModelState.IsValid)
             {
-                var total = tc.Total;
-                ViewBag.Tip15 = total * 0.15;
-                ViewBag.Tip20 = total * 0.20;
-                ViewBag.Tip25 = total * 0.25;
+                ViewBag.Tip15 = tc.Tip(15);
+                ViewBag.Tip20 = tc.Tip(20);
+                ViewBag.Tip25 = tc.Tip(25);
             }
             return View(tc);
         }

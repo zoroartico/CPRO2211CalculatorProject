@@ -2,7 +2,7 @@
 
 namespace CPRO2211CalculatorProject.Models
 {
-    public class Calculator
+    public class CalculatorModel
     {
         //checking if the inputed variables are null or empty, then throwing an error.
         public void Validate(params decimal[] numbers)
