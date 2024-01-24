@@ -6,8 +6,12 @@ namespace CPRO2211CalculatorProject.Controllers
     public class TipCalculatorController : Controller
     {
         [Route("tip")]
+        [HttpGet]
         public IActionResult TipCalculatorView()
         {
+            ViewBag.Tip15 = 0;
+            ViewBag.Tip20 = 0;
+            ViewBag.Tip25 = 0;
             return View();
         }
 
