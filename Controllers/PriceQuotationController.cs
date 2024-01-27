@@ -5,8 +5,10 @@ namespace CPRO2211CalculatorProject.Controllers
 {
     public class PriceQuotationController : Controller
     {
+        //declaring default route as a constant
+        private const string DEF = "quote";
         //routing the pathway to /quote
-        [Route("quote")]
+        [Route(DEF)]
         //setting the get request for the web server
         [HttpGet]
         public IActionResult PriceQuotationView()
@@ -17,7 +19,7 @@ namespace CPRO2211CalculatorProject.Controllers
         }
         //setting the post request for the web server. This will activate on button click in the web form
         //if the request is valid, then it will update the discount and total fields
-        [Route("quote")]
+        [Route(DEF)]
         [HttpPost]
         public IActionResult PriceQuotationView(PriceQuotationModel pq)
         {

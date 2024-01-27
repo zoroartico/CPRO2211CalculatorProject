@@ -5,7 +5,9 @@ namespace CPRO2211CalculatorProject.Controllers
 {
     public class TipCalculatorController : Controller
     {
-        [Route("tip")]
+        private const string DEF = "tip";
+
+        [Route(DEF)]
         [HttpGet]
         public IActionResult TipCalculatorView()
         {
@@ -15,7 +17,7 @@ namespace CPRO2211CalculatorProject.Controllers
             return View( new TipCalculatorModel() );
         }
 
-        [Route("tip")]
+        [Route(DEF)]
         [HttpPost]
         public IActionResult TipCalculatorView(TipCalculatorModel tc)
         {
