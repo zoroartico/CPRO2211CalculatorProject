@@ -6,7 +6,7 @@ namespace CPRO2211CalculatorProject.Models
     {
         //setting attributes of the model
         [Required(ErrorMessage = ErrorMsg.EMPTY)]
-        [Range(0, 999999999999, ErrorMessage = ErrorMsg.LESS_0)]
+        [Range(0.00, Int32.MaxValue, ErrorMessage = ErrorMsg.LESS_0)]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = ErrorMsg.EMPTY)]

@@ -15,14 +15,15 @@ namespace CPRO2211CalculatorProject.Controllers
             return View( new TipCalculatorModel() );
         }
 
+        [Route("tip")]
         [HttpPost]
         public IActionResult TipCalculatorView(TipCalculatorModel tc)
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Tip15 = tc.Tip(0.15m);
-                ViewBag.Tip20 = tc.Tip(0.20m);
-                ViewBag.Tip25 = tc.Tip(0.25m);
+                ViewBag.Tip15 = tc.Tip(15m);
+                ViewBag.Tip20 = tc.Tip(20m);
+                ViewBag.Tip25 = tc.Tip(25m);
             }
             return View(tc);
         }
