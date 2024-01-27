@@ -12,7 +12,7 @@ namespace CPRO2211CalculatorProject.Controllers
             ViewBag.Tip15 = 0;
             ViewBag.Tip20 = 0;
             ViewBag.Tip25 = 0;
-            return View();
+            return View( new TipCalculatorModel() );
         }
 
         [HttpPost]
@@ -20,9 +20,9 @@ namespace CPRO2211CalculatorProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Tip15 = tc.Tip(15);
-                ViewBag.Tip20 = tc.Tip(20);
-                ViewBag.Tip25 = tc.Tip(25);
+                ViewBag.Tip15 = tc.Tip(0.15m);
+                ViewBag.Tip20 = tc.Tip(0.20m);
+                ViewBag.Tip25 = tc.Tip(0.25m);
             }
             return View(tc);
         }
