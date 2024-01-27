@@ -1,6 +1,6 @@
 ﻿namespace CPRO2211CalculatorProject.Models
 {
-    public class PriceQuotationCalculatorModel : CalculatorModel
+    public class PriceQuotationModel : CalculatorModel
     {
         //method to get the total price after discount
         public decimal getTotal(decimal price, decimal discount) => Multiply(price, discount);
