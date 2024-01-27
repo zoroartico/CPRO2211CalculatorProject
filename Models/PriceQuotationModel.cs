@@ -2,10 +2,13 @@
 {
     public class PriceQuotationModel : CalculatorModel
     {
+        //setting attributes of the model
+        public decimal Price { get; set; }
+        public decimal DiscountPercent { get; set; }
         //method to get the total price after discount
-        public decimal getTotal(decimal price, decimal discount) => Multiply(price, discount);
+        public decimal Total() => Multiply(Price, DiscountPercent);
 
         //method to get the discounted amount as a dollar value
-        public decimal getDiscount(decimal price, decimal discount) => Subtract(price, getTotal(price, discount));
+        public decimal Discount() => Subtract(Price, Total());
     }
 }

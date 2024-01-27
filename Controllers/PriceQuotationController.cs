@@ -5,26 +5,32 @@ namespace CPRO2211CalculatorProject.Controllers
 {
     public class PriceQuotationController : Controller
     {
+        //routing the pathway to /quote
         [Route("quote")]
+        //setting the get request for the web server
         [HttpGet]
         public IActionResult PriceQuotationView()
         {
-            ViewBag.discount = 0;
-            ViewBag.total = 0;
+            ViewBag.Discount = 0;
+            ViewBag.Total = 0;
             return View();
         }
-
+        //setting the post request for the web server. This will activate on button click in the web form
+        //if the request is valid, then it will update the discount and total fields
         [HttpPost]
-        public IActionResult PriceQuotationPost()
+        public IActionResult PriceQuotationView(PriceQuotationModel pq)
         {
             if (ModelState.IsValid)
             {
-                PriceQuotationModel pq = new PriceQuotationModel();
-                ViewBag.discount = pq.getDiscount(ViewBag.inputSubtotal, ViewBag.discountInput);
-                Console.WriteLine(pq.getDiscount(ViewBag.inputSubtotal, ViewBag.discountInput));
-                ViewBag.total = pq.getTotal(ViewBag.inputSubtotal, ViewBag.discountInput);
+                ViewBag.Discount = pq.Discount();
+                ViewBag.Total = pq.Total();
             }
-            return View();
+            else
+            {
+                ViewBag.Discount = 0;
+                ViewBag.Total = 0;
+            }
+            return View(pq);
         }
     }
 }

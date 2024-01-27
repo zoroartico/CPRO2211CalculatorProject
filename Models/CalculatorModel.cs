@@ -55,6 +55,7 @@ namespace CPRO2211CalculatorProject.Models
             }        
             return result;
         }
-        
+
+        public decimal Percent(decimal num) => num / 100;
     }
 }

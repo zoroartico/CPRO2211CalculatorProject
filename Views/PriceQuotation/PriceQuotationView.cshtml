@@ -1,23 +1,36 @@
 ﻿@model PriceQuotationModel
 
-<div class="row">
-    <label for="inputSubtotal">Subtotal: </label>
-    <input type="number" id="inputSubtotal" text="0.00" />
-</div>
+@{
+    ViewBag.Title = "Price Quotation Calculator";
+}
 
-<div class="row">
-    <label for="discountInput">Discount Percent: </label>
-    <input type="number" id="discountInput" text="0.00" />
-</div>
+<form asp-action="PriceQuotationView" method="post">
+    <div class="row">
+        <label asp-for="Price">Subtotal:</label>
+        <input class="form-control" asp-for="Price" type="number" step="0.01" name="subtotal"/>
+        <span asp-validation-for="Price"></span>
+    </div>
 
-<div class="row">
-    <label for="discount">Discount Amount: </label>
-    <output id="discount" type="number"></output>
-</div>
+    <div class="row">
+        <label asp-for="DiscountPercent">Discount Percent:</label>
+        <input class="form-control" asp-for="DiscountPercent" type="number" step="0.01" />
+        <span asp-validation-for="DiscountPercent"></span>
+    </div>
 
-<div class="row">
-    <label for="total">Total: </label>
-    <output id="total" type="number"></output>
+    <div class="row">
+        <label>Discount Amount:</label>
+        <label>@ViewBag.Discount.ToString("c2")</label>
+    </div>
 
-</div>
-<button type="submit" id="calcButton">Calculate</button>
+    <div class="row">
+        <label>Total: </label>
+        <label>@ViewBag.Total.ToString("c2")</label>
+    </div>
+
+    <div class="row">
+        <button type="submit">Calculate</button>
+        <a asp-action="PriceQuotationView">Clear</a>
+    </div>
+</form>
+
+    
