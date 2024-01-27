@@ -6,14 +6,14 @@
 
 <form asp-action="PriceQuotationView" method="post">
     <div class="row">
-        <label asp-for="Price">Subtotal:</label>
-        <input class="form-control" asp-for="Price" type="number" step="0.01" name="subtotal"/>
+        <label>Subtotal:</label>
+        <input class="form-control" asp-for="Price" type="number" step="0.01" name="Price"/>
         <span asp-validation-for="Price"></span>
     </div>
 
     <div class="row">
-        <label asp-for="DiscountPercent">Discount Percent:</label>
-        <input class="form-control" asp-for="DiscountPercent" type="number" step="0.01" />
+        <label>Discount Percent:</label>
+        <input class="form-control" asp-for="DiscountPercent" type="number" step="0.01" name="DiscountPercent"/>
         <span asp-validation-for="DiscountPercent"></span>
     </div>
 
@@ -29,7 +29,7 @@
 
     <div class="row">
         <button type="submit">Calculate</button>
-        <a asp-action="PriceQuotationView">Clear</a>
+        <button type="reset">Clear</button>
     </div>
 </form>
 

@@ -17,6 +17,7 @@ namespace CPRO2211CalculatorProject.Controllers
         }
         //setting the post request for the web server. This will activate on button click in the web form
         //if the request is valid, then it will update the discount and total fields
+        [Route("quote")]
         [HttpPost]
         public IActionResult PriceQuotationView(PriceQuotationModel pq)
         {

@@ -11,12 +11,12 @@ namespace CPRO2211CalculatorProject.Models
 
         [Required(ErrorMessage = ErrorMsg.EMPTY)]
         [Range(0, 100, ErrorMessage = ErrorMsg.RANGE_0_100)]
-
         public decimal DiscountPercent { get; set; }
+
         //method to get the total price after discount
-        public decimal Total() => Multiply(Price, DiscountPercent);
+        public decimal Discount() => Multiply(Price, Percent(DiscountPercent));
 
         //method to get the discounted amount as a dollar value
-        public decimal Discount() => Subtract(Price, Total());
+        public decimal Total() => Subtract(Price, Discount());
     }
 }
