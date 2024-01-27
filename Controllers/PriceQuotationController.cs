@@ -9,13 +9,22 @@ namespace CPRO2211CalculatorProject.Controllers
         [HttpGet]
         public IActionResult PriceQuotationView()
         {
+            ViewBag.discount = 0;
+            ViewBag.total = 0;
             return View();
         }
 
         [HttpPost]
-        public IActionResult PriceQuotationView(PriceQuotationModel pq)
+        public IActionResult PriceQuotationPost()
         {
-            return View(pq);
+            if (ModelState.IsValid)
+            {
+                PriceQuotationModel pq = new PriceQuotationModel();
+                ViewBag.discount = pq.getDiscount(ViewBag.inputSubtotal, ViewBag.discountInput);
+                Console.WriteLine(pq.getDiscount(ViewBag.inputSubtotal, ViewBag.discountInput));
+                ViewBag.total = pq.getTotal(ViewBag.inputSubtotal, ViewBag.discountInput);
+            }
+            return View();
         }
     }
 }
