@@ -1,34 +1,58 @@
 ﻿@model TipCalculatorModel
 
 @{
-    ViewBag.Title = "Tip Calculator";
+    string title = "Tip Calculator";
+    ViewBag.Title = title;
 }
 
-<form method="post">
-    <div class="row">
-        <label for="Total">Subtotal:</label>
-        <input class="form-control" asp-for="Total" step="0.01" name="Total" />
-        <span asp-validation-for="Total" class="error"></span>
+<form asp-action="TipCalculatorView" method="post">
+    <div class="row container-fluid text-center">
+        <h2 class="display-4">@title</h2>
     </div>
-    <div class="row">
-        <label>Tip 15%:</label>
-        <output id="tip15">@ViewBag.Tip15.ToString("c2")</output>
-    </div>
-    <div class="row">
-        <label>Tip 20%:</label>
-        <output id="tip20">@ViewBag.Tip20.ToString("c2")</output>
-    </div>
-    <div class="row">
-        <label>Tip 25%:</label>
-        <output id="tip25">@ViewBag.Tip25.ToString("c2")</output>
-    </div>
-    <div class="row">
-        <div class="column">
-            <button type="submit">Calculate</button>
+
+    <br>
+    <br>
+
+    <div class="row container-fluid d-flex align-items-center justify-content-center mb-3">
+        <div class="col-md-4 display-6">
+            <label for="Total" class="form-label">Subtotal:</label>
         </div>
-        <div class="column">
-            <a asp-action="TipCalculatorView">Clear</a>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="Total" type="number" step="0.01" name="Total" />
         </div>
+        <span asp-validation-for="Total" class="text-danger text-center"></span>
+    </div>
+
+    <div class="row container-fluid d-flex align-items-center justify-content-center mb-3">
+        <div class="col-md-4 display-6">
+            <label for="Tip15" class="form-label">Tip 15%:</label>
+        </div>
+        <div class="col-md-6 display-6">
+        <label name="tip15" class="form-label">@ViewBag.Tip15.ToString("c2")</label>
+        </div>
+    </div>
+
+    <div class="row container-fluid d-flex align-items-center justify-content-center mb-3">
+        <div class="col-md-4 display-6">
+        <label for="Tip20" class="form-label">Tip 20%:</label>
+        </div>
+        <div class="col-md-6 display-6">
+        <label name="tip20" class="form-label">@ViewBag.Tip20.ToString("c2")</label>
+        </div>
+    </div>
+
+    <div class="row container-fluid d-flex align-items-center justify-content-center mb-3">
+        <div class="col-md-4 display-6">
+            <label for="Tip25" class="form-label">Tip 25%:</label>
+        </div>
+        <div class="col-md-6 display-6">
+            <label name="tip25" class="form-label">@ViewBag.Tip25.ToString("c2")</label>
+        </div>
+    </div>
+
+    <div class="row container-fluid d-flex align-items-center justify-content-center mb-3">
+        <button type="submit" class="btn btn-primary btn-lg mb-3" style="width: 40vw;">Calculate</button>
+        <a type="reset" class="btn btn-default btn-lg mb-3" asp-action="TipCalculatorView" style="width: 40vw;">Clear</a>
     </div>
     
 </form>
