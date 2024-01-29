@@ -6,8 +6,8 @@
 
 <form method="post">
     <div class="row">
-        <label>Total:</label>
-        <input asp-for="Total" type="number" id="Total" step="0.01" text="0.00" name="Total"/>
+        <label for="Total">Subtotal:</label>
+        <input class="form-control" asp-for="Total" step="0.01" name="Total" />
         <span asp-validation-for="Total" class="error"></span>
     </div>
     <div class="row">
@@ -22,7 +22,6 @@
         <label>Tip 25%:</label>
         <output id="tip25">@ViewBag.Tip25.ToString("c2")</output>
     </div>
-
     <div class="row">
         <div class="column">
             <button type="submit">Calculate</button>
