@@ -33,5 +33,5 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    text-decoration: underline;
+    text-shadow: 0 0px 4px #258cfb
 }
